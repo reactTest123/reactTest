@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getTrueDom</title>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var MyComponent = React.createClass({
+                handleClick: function() {
+                    this.refs.myTextInput.focus();
+                },
+                oriInputChange:function(){
+//                    alert("输入内容是："+this.refs.myTextInput.value);//获取dom节点的值
+                    this.refs.myTextInput2.value=this.refs.myTextInput.value;//目前不能写入
+                },
+                render: function() {
+                    return (
+                            <div>
+                            <input type="text" ref="myTextInput" onChange={this.oriInputChange}/>
+                            <input type="text" ref="myTextInput2" />
+                            <input type="button" value="Focus the text input" onClick={this.handleClick} />
+                </div>
+    );
+    }
+    });
+
+    ReactDOM.render(
+    <MyComponent />,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

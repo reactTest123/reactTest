@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>数组</title>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var names=[<li>ALice</li>,<li>Bob</li>,<li>Skye</li>];
+    var outPut="";
+    var HelloMessage=React.createClass({
+        render:function(){
+//            return <div>111</div>;
+          /* for(let index in names) {
+
+                outPut+=index+names[index];
+               console.log(index,outPut);
+            }*/
+            return <ol>{names}</ol>;
+        }
+    });
+    ReactDOM.render(<HelloMessage />,document.getElementById('example'));
+</script>
+</body>
+</html>
